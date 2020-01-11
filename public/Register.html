@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Register</title>
+    <link href="./index.css" rel="stylesheet">
+    <script src="./jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#sno").val("");
+            checkLogin(() => {
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get("sno")) {
+                    getUserDetailsById(urlParams.get("sno"))
+                }
+            });
+
+            $("#image").change(function () {
+                showPreviewOfUploadedPhoto(this);
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="reg-div">
+        <div class="top-panel"><button class="logout-btn" onclick="logout()">Logout</button></div>
+        <div class="registration">
+            <div class="title-reg">Registration</div>
+            <div class="content-reg">
+                <div id="uploadedPhotoPreview" class="uploaded-photo-preview"></div>
+                <div>Enter Name:</div>
+                <div><input type='text' id='name'></div>
+                <div>Enter City:</div>
+                <div><input type='text' id='city'></div>
+                <div>Upload Image:</div>
+                <div class="upload-file-div"> <input type="file" style="display:none;" name="image" id="image" accept="image/x-png,image/jpeg">
+                    <a href="javascript:void(0)" onclick="onSelectPhotoImage()" class="upload-photo-link" style="">Upload Photo</a>
+                    <span id="selectedFileName" class="upload-photo-file-name"></span>
+                
+                </div>
+                <div class="logout-button">
+                    <button onclick="addUserDetails()">Submit</button>
+                    <button class="show-list" onclick="openUserList()">Show List</button>
+                    <input type='hidden' id='sno'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Register</title>
+    <link href="./index.css" rel="stylesheet">
+    <script src="./jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        $(document).ready(function() {
+            checkLogin(() => {
+                showList();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="list-div">
+        <div class="top-panel">
+            <button class="logout-btn" onclick="backToRegistration()">Back</button>
+            <button class="logout-btn" onclick="deleteData()">Delete</button>
+            <button class="logout-btn" onclick="showUpdateData()">Update</button>
+        </div>
+        <div class="user-list-table" id="userList"></div>
+    </div>
+
+
+</body>
+
+</html>
